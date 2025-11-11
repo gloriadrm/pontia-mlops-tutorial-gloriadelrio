@@ -21,15 +21,19 @@ ENV/
 .ipynb_checkpoints/
 *.nbconvert.ipynb
 
-
-
 # --- Experiment configs ---
 *.tfvars
 *.tfplan
 
-# --- MLflow cache (if used) ---
+# # --- ML & data artifacts ---
 mlruns/
 mlartifacts/
+models/
+*.log
+*.h5
+*.pkl
+*.joblib
+*.ckpt
 
 # --- VSCode ---
 .vscode/
@@ -64,3 +68,13 @@ docker-compose.override.yml
 *.key
 .envrc
 .env.*
+
+# --- Data files ---
+data/
+*.csv
+*.tsv
+*.json
+*.xlsx
+*.parquet
+*.zip
+*.gz
