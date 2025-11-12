@@ -44,7 +44,7 @@ jobs:
           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --registry-login-server ${{secrets.ACR_NAME}} \
           --registry-username ${{ secrets.ACR_USERNAME }} \
           --registry-password ${{ secrets.ACR_PASSWORD }} \
-          --environment-variables MODEL_URI="models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}" MLFLOW_TRACKING_URI=${{ vars.MODEL_NAME }} AZURE_STORAGE_CONNECTION_STRING=${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
+          --environment-variables MODEL_URI="models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}" MLFLOW_TRACKING_URI=${{ vars.MLFLOW_URL }} AZURE_STORAGE_CONNECTION_STRING=${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
           --dns-name-label ${{ secrets.IMAGE_NAME }}-${{ github.run_id }} \
           --ports 8080 \
           --os-type Linux \
