@@ -45,7 +45,7 @@ jobs:
           --registry-username ${{ secrets.ACR_USERNAME }} \
           --registry-password ${{ secrets.ACR_PASSWORD }} \
           --environment-variables MODEL_URI="models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}" MLFLOW_TRACKING_URI=${{ vars.MLFLOW_URL }} AZURE_STORAGE_CONNECTION_STRING=${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
-          --dns-name-label ${{ secrets.IMAGE_NAME }}-${{ github.run_id }} \
+          --dns-name-label ${{ vars.IMAGE_NAME }}-${{ github.run_id }} \
           --ports 8080 \
           --os-type Linux \
           --cpu 0.5 \
