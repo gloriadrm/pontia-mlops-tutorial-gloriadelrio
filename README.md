@@ -24,47 +24,6 @@ El objetivo principal es **automatizar el ciclo de vida del modelo** (entrenamie
 
 ## 📂 Estructura del Repositorio
 
-.
-├── .github/workflows/          # Pipelines de GitHub Actions
-│   ├── build.yml               # Build & push de imagen a Azure Container Registry
-│   ├── deploy.yml              # Despliegue automático en Azure Container Instances
-│   └── integration.yml         # Pipeline de tests de integración (CI)
-│
-├── data/raw/                   # Datos brutos utilizados en el entrenamiento
-│   └── .gitkeep                
-│
-├── deployment/                 # Configuración de despliegue
-│   ├── app/                    # Carpeta de la aplicación lista para contenedor
-│   └── Dockerfile              # Imagen Docker del modelo
-│
-├── model_tests/                # Pruebas específicas de los modelos
-│   ├── __init__.py             
-│   └── test_model.py           # Tests unitarios de modelos entrenados
-│
-├── models/                     # Almacenamiento de modelos entrenados
-│   └── .gitkeep
-│
-├── scripts/                    # Scripts auxiliares para MLflow y registro
-│   ├── query_model.py          # Consulta de modelos registrados en MLflow
-│   └── register_model.py       # Registro de modelos entrenados en MLflow
-│
-├── src/                        # Código fuente principal del proyecto
-│   ├── __init__.py             
-│   ├── data_loader.py          # Carga y preprocesamiento de datos
-│   ├── evaluate.py             # Evaluación de métricas y rendimiento
-│   ├── main.py                 # Script principal del experimento / API
-│   └── model.py                # Definición y entrenamiento del modelo ML
-│
-├── unit_tests/                 # Pruebas unitarias generales
-│   ├── __init__.py             
-│   └── (tests individuales)
-│
-├── .gitignore                  
-├── README.md                   # (este documento)
-├── lecciones_aprendidas.md     # Registro de problemas y soluciones
-├── pytest.ini                  # Configuración de Pytest
-├── requirements.txt            # Dependencias del proyecto
-└── run_id.txt                  # Identificador del último experimento
 
 
 ---
