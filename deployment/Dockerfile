@@ -14,7 +14,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project
-COPY ./app /code/app
+COPY ./deployment/app /code/app
 
 # Expose the port FastAPI will run on
 EXPOSE 8080
