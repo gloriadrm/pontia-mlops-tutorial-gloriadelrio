@@ -27,7 +27,10 @@ jobs:
           python-version: '3.10'
       
       - name: Generate RUN_NAME
-        run: echo "RUN_NAME=run-$(date + '%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV    
+        run: echo "RUN_NAME=run-$(date +'%Y-%m-%d_%H:%M:%S')" >> $GITHUB_ENV   
+        
+      - name: Check RUN_NAME
+        run: echo "RUN_NAME=$RUN_NAME"
 
       - name: Install dependencies
         run: |
@@ -43,7 +46,7 @@ jobs:
         run: |
           python src/main.py
 
-      - name: Save run_id to env
+      - name: Save RUN_ID to env
         run: echo "RUN_ID=$(cat run_id.txt)" >> $GITHUB_ENV
           
       - name: Run model tests
