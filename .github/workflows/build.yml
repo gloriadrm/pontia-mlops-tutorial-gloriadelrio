@@ -27,7 +27,7 @@ jobs:
           python-version: '3.10'
       
       - name: Generate RUN_NAME
-        run: echo "RUN_NAME=run-$(date + '%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV    
+        run: echo "RUN_NAME=run-$(date+'%Y-%m-%d_%H:%M:%S')" >> $GITHUB_ENV    
 
       - name: Install dependencies
         run: |
