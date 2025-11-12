@@ -57,4 +57,4 @@ jobs:
 
       - name: Probe REST API
         run: |
-          curl --fail http://${{ secrets.IMAGE_NAME }}-${{ github.run_id }}.${{ vars.AZURE_REGION }}.azurecontainer.io:8080/health
+          curl --fail http://${{ vars.IMAGE_NAME }}-${{ github.run_id }}.${{ vars.AZURE_REGION }}.azurecontainer.io:8080/health
