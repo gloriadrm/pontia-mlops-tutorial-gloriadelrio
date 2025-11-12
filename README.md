@@ -24,6 +24,7 @@ El objetivo principal es **automatizar el ciclo de vida del modelo** (entrenamie
 
 ## 📂 Estructura del Repositorio
 
+<img width="1950" height="2082" alt="image" src="https://github.com/user-attachments/assets/8d00e9d6-900f-46cc-a608-26dde730dd78" />
 
 
 ---
