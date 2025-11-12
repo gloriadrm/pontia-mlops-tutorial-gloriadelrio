@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{secrets.ACR_NAME}}/${{vars.IMAGE_NAME}} ./deployment
+          docker build -f ./deployment/Dockerfile -t ${{secrets.ACR_NAME}}/${{vars.IMAGE_NAME}} .
 
       - name: Push Docker image to ACR
         run: |
