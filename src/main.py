@@ -1,3 +1,4 @@
+import os
 import logging
 import time
 import platform
@@ -21,14 +22,10 @@ logging.basicConfig(
 )
 logger=logging.getLogger("adult-income")
 
-run_name = f"run-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+run_name = os.getenv("RUN_NAME", "no_name_found")
 
 # MLflow config
-MLFLOW_URI = "http://mlflow-9675.eastus.azurecontainer.io:5000"
 EXPERIMENT_NAME = "adult-income-gloriadrm"
-
-mlflow.set_tracking_uri(MLFLOW_URI)
-mlflow.set_experiment(EXPERIMENT_NAME)
 
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -37,6 +34,10 @@ MODEL_DIR = PROJECT_ROOT / "models"
 MODEL_DIR.mkdir(exist_ok=True)
 
 def main():
+    # MLflow config 
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_URL", "no_url_found"))
+    mlflow.set_experiment(os.getenv("EXPERIMENT_NAME", "var_not_found"))
+    
     script_start = time.time()
     logger.info(f"System info: {platform.platform()}")
 
