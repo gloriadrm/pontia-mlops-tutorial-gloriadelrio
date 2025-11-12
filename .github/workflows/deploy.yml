@@ -19,7 +19,7 @@ jobs:
         run: az acr login --name ${{secrets.ACR_USERNAME}}
 
       - name: Set MODEL_URI environment variable
-        run: echo "MODEL_URI=models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}" >> $GITHUB_ENV
+        run: echo "MODEL_URI=models:/${{ vars.MODEL_NAME }}@${{ vars.MODEL_ALIAS }}" >> $GITHUB_ENV
 
       - name: Build Docker image
         run: |
@@ -30,9 +30,7 @@ jobs:
           docker push ${{secrets.ACR_NAME}}/${{vars.IMAGE_NAME}}
 
       - name: Deploy to Azure Container Instances
-        run: |
-          echo "MODEL_URI=models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}" >> $GITHUB_ENV
-          
+        run: |          
           CMD=( az container create
             --name "${{ vars.MODEL_NAME }}"
             --image "${{ secrets.ACR_NAME }}/${{ vars.IMAGE_NAME }}:latest"
@@ -42,7 +40,7 @@ jobs:
             --registry-username "${{ secrets.ACR_USERNAME }}"
             --registry-password "${{ secrets.ACR_PASSWORD }}"
             --environment-variables
-              MODEL_URI="models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}"
+              MODEL_URI="models:/${{ vars.MODEL_NAME }}@${{ vars.MODEL_ALIAS }}"
               MLFLOW_TRACKING_URI="${{ vars.MLFLOW_URL }}"
               AZURE_STORAGE_CONNECTION_STRING="${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}"
             --dns-name-label "${{ vars.IMAGE_NAME }}-${{ github.run_id }}"
