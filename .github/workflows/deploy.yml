@@ -31,6 +31,13 @@ jobs:
 
       - name: Deploy to Azure Container Instances
         run: |
+          set -euo pipefail
+          echo "MODEL_NAME=${{ vars.MODEL_NAME }}"
+          echo "IMAGE_NAME=${{ vars.IMAGE_NAME }}"
+          echo "ACR_NAME=${{ secrets.ACR_NAME }}"
+          echo "RESOURCE_GROUP=${{ secrets.AZURE_RESOURCE_GROUP }}"
+          echo "REGION=${{ secrets.AZURE_REGION }}"
+
           az container create \
           --name ${{vars.MODEL_NAME}} \
           --image ${{secrets.ACR_NAME}}/${{vars.IMAGE_NAME}}:latest \
