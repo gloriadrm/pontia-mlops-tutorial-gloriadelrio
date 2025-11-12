@@ -36,7 +36,7 @@ jobs:
           echo "IMAGE_NAME=${{ vars.IMAGE_NAME }}"
           echo "ACR_NAME=${{ secrets.ACR_NAME }}"
           echo "RESOURCE_GROUP=${{ secrets.AZURE_RESOURCE_GROUP }}"
-          echo "AZURE_REGION=${{ secrets.AZURE_REGION }}"
+          echo "AZURE_REGION=${{ vars.AZURE_REGION }}"
 
           az container create \
           --name ${{vars.MODEL_NAME}} \
@@ -50,11 +50,11 @@ jobs:
           --os-type Linux \
           --cpu 0.5 \
           --memory 1.0 \
-          --location ${{ secrets.AZURE_REGION }}
+          --location ${{ vars.AZURE_REGION }}
 
       - name: Wait for container to start
         run: sleep 30
 
       - name: Probe REST API
         run: |
-          curl --fail http://${{ secrets.IMAGE_NAME }}-${{ github.run_id }}.${{ secrets.AZURE_REGION }}.azurecontainer.io:8080/health
+          curl --fail http://${{ secrets.IMAGE_NAME }}-${{ github.run_id }}.${{ vars.AZURE_REGION }}.azurecontainer.io:8080/health
