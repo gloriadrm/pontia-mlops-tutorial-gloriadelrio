@@ -36,7 +36,7 @@ jobs:
           echo "IMAGE_NAME=${{ vars.IMAGE_NAME }}"
           echo "ACR_NAME=${{ secrets.ACR_NAME }}"
           echo "RESOURCE_GROUP=${{ secrets.AZURE_RESOURCE_GROUP }}"
-          echo "REGION=${{ secrets.AZURE_REGION }}"
+          echo "AZURE_REGION=${{ secrets.AZURE_REGION }}"
 
           az container create \
           --name ${{vars.MODEL_NAME}} \
