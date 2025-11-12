@@ -31,6 +31,8 @@ jobs:
 
       - name: Deploy to Azure Container Instances
         run: |
+          echo "MODEL_URI=models:/${{ vars.MODEL_NAME }}@${{ secrets.MODEL_ALIAS }}" >> $GITHUB_ENV
+          
           CMD=( az container create
             --name "${{ vars.MODEL_NAME }}"
             --image "${{ secrets.ACR_NAME }}/${{ vars.IMAGE_NAME }}:latest"
