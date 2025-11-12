@@ -1,5 +1,7 @@
 # 🚀 Proyecto: Automatizaciones CI/CD aplicadas a Modelos de Machine Learning
 
+Realizado por Gloria del Rio Márquez
+
 > "Automatizar no es solo optimizar tiempo, sino asegurar calidad y reproducibilidad en cada entrega."
 
 ## 🧩 Descripción del proyecto
